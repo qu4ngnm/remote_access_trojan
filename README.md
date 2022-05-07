@@ -15,6 +15,8 @@
     git clone https://github.com/quangdaik2362001/remote_access_trojan.git
 ```
 
+- Trước khi khởi chạy sẽ cần mở source code lên để config lại cái `attacker_ip` thành địa chỉ IP máy mình, và cùng với đó là `listener_ip` thành IP máy mình giống như `attacker_IP` rồi sau đó mới khởi chạy
+
 - Trước khi khởi chạy file `victim.py` thì ta cần khởi chạy file `attacker.py` để lắng nghe kết nối trước 
 
 - Sau khi clone về ta sẽ bằng cách nào đó execute file `victim.py` trên máy nạn nhân (sau này ta sẽ pack file python lại thành file thực thi stand alone để tiện gửi cho victim)
