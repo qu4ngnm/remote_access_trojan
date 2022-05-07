@@ -36,4 +36,10 @@
 
 - Nâng cấp thêm tính năng `download/upload file` giữa máy nạn nhân và máy attacker 
 
+- Nâng cấp thêm tính năng `screenshot` trên máy nạn nhân
+
+- Bổ sung tính năng `auto run` và `auto connect to host` trên trojan
+
+- Bổ sung tính năng `nguỵ trang` ngay khi được khởi chạy trên máy nạn nhân
+
 **Các tính năng khác mọi người cho ý tưởng và update thêm**
