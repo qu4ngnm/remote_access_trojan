@@ -7,7 +7,7 @@
 
 # Cách cài đặt
 
-        `pip install socket`
+        pip install socket
 
 - Sau khi cài đặt package socket thì ta sẽ clone 2 file `attacker` và `victim.py` về máy bằng câu lệnh
 
