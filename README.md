@@ -7,7 +7,7 @@
 
 # Cách cài đặt
 
-        `pip install socket`
+        pip install socket
 
 - Sau khi cài đặt package socket thì ta sẽ clone 2 file `attacker` và `victim.py` về máy bằng câu lệnh
 
@@ -23,3 +23,15 @@
 
 
 **Tuy nhiên đây mới chỉ là bản demo ban đầu, chưa hoàn thiện đầy đủ tính năng**
+
+# Các tính năng sắp tới sẽ update thêm
+
+- Pack file `victime.py` thành file thực thi `.exe` để dễ dàng gửi cho nạn nhân
+
+- Nâng cấp thêm lệnh thực thi `cd,...`
+
+- Nâng cấp thêm tính năng `keylogger`
+
+- Nâng cấp thêm tính năng `download/upload file` giữa máy nạn nhân và máy attacker 
+
+**Các tính năng khác mọi người cho ý tưởng và update thêm**
