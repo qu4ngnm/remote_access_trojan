@@ -11,6 +11,13 @@ def download(file_name):
     data_to_send = data_to_send.encode()
     sock.send(data_to_send)
 
+def screenshot():
+    num = 1
+    sc = open('ScreenShot/Screenshot_%d'%num, 'wb')
+    img = sock.recv(2048)
+    sc.write(img)
+    sc.close()
+
 def upload(file_name):
     file_upload = open(file_name, 'wb')
     data_recv = sock.recv(2048)
