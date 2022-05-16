@@ -1,9 +1,15 @@
 # Remote access trojan thực hiện bởi Team 8
 
-- Dưới đây là một vài hình ảnh đầu tiên của reverse shell đã được thực hiện `<7/5/2022>`
+- Dưới đây là một vài hình ảnh đầu tiên của reverse shell đã được thực hiện
 
-    ![Demo png](img/remote.png)
+    ![Demo png](img/remote-1.png)
 
+    ![](img/remote-2.png)
+- Thực thi lệnh `dir` trên máy nạn nhân
+    ![](img/remote-3.png)
+- Thực thi lệnh `help` để xem câu lệnh hỗ trợ
+
+- Và chương trình có thể thực hiện rất nhiều câu lệnh khác trên `windows` hoặc ngay cả `linux` và trên bất kỳ hệ thống nào mà nó xâm nhập được
 
 # Cách cài đặt
 
@@ -28,18 +34,18 @@
 
 # Các tính năng sắp tới sẽ update thêm
 
-- Pack file `victime.py` thành file thực thi `.exe` để dễ dàng gửi cho nạn nhân
+- Pack file `victime.py` thành file thực thi `.exe` để dễ dàng gửi cho nạn nhân  ✅
 
-- Nâng cấp thêm lệnh thực thi `cd,...`
+- Nâng cấp thêm lệnh thực thi `cd,...` ✅
 
-- Nâng cấp thêm tính năng `keylogger`
+- Nâng cấp thêm tính năng `keylogger` 📛
 
-- Nâng cấp thêm tính năng `download/upload file` giữa máy nạn nhân và máy attacker 
+- Nâng cấp thêm tính năng `download/upload file` giữa máy nạn nhân và máy attacker ✅50% 
 
-- Nâng cấp thêm tính năng `screenshot` trên máy nạn nhân
+- Nâng cấp thêm tính năng `screenshot` trên máy nạn nhân 📛
 
-- Bổ sung tính năng `auto run` và `auto connect to host` trên trojan
+- Bổ sung tính năng `auto run` và `auto connect to host` trên trojan ✅
 
-- Bổ sung tính năng `nguỵ trang` ngay khi được khởi chạy trên máy nạn nhân
+- Bổ sung tính năng `nguỵ trang` ngay khi được khởi chạy trên máy nạn nhân  ✅
 
 **Các tính năng khác mọi người cho ý tưởng và update thêm**

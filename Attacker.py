@@ -1,6 +1,7 @@
 import socket
 import os
 import subprocess
+from colorama import Fore
 
 listener_ip = '192.168.0.119'
 listener_port = 6996
@@ -75,7 +76,7 @@ def listener():
     print("[+] Get connection from target. Starting shell command...\n")
 
 if __name__ == "__main__":
-    print(banner)
+    print(Fore.BLUE + banner)
     listener()
     shell_command()
     sock.close()
