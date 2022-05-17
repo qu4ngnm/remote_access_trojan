@@ -40,7 +40,7 @@
 
 - Nâng cấp thêm tính năng `keylogger` 📛
 
-- Nâng cấp thêm tính năng `download/upload file` giữa máy nạn nhân và máy attacker ✅50% 
+- Nâng cấp thêm tính năng `download/upload file` giữa máy nạn nhân và máy attacker 📛
 
 - Nâng cấp thêm tính năng `screenshot` trên máy nạn nhân 📛
 
