@@ -8,7 +8,7 @@ a = Analysis(
     ['Victim.py'],
     pathex=[],
     binaries=[],
-    datas=[],
+    datas=[('icon/jisoo.jpg', 'icon')],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},
